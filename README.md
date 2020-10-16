@@ -3,5 +3,5 @@
 
 ## 地址
 
-- [github](https://thumbnail.github.io)
-- [国内:gitee](https://thumbnail.gitee.io)
+- [github](https://lhlyu.github.io/thumbnail/)
+- [国内:gitee](https://lhlyu.gitee.io/thumbnail/)
