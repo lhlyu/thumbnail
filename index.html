@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>不同分辨率网站缩略图</title>
+
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body class="">
+    <div class="wrapper">
+        <section class="display">
+            <div class="mobile ui-draggable">
+                <div class="trim">
+                    <iframe src="" id="mobile">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="tablet ui-draggable">
+                <div class="trim">
+                    <iframe src="" id="tablet">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="laptop ui-draggable">
+                <div class="trim">
+                    <iframe src="" id="laptop">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="desktop ui-draggable">
+                <div class="trim">
+                    <iframe src="" id="desktop">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+        <div class="input">
+            <input id="input" type="text" placeholder="不同屏幕网站缩略图，输入网址并回车">
+        </div>
+    </div>
+    <script>
+        // Website thumbnail
+        window.onload = () => {
+
+            const screens = document.querySelectorAll('iframe')
+            const input = document.querySelector('#input')
+
+            screens.forEach(s => {
+                const zIndex = s.parentElement.parentElement.style.zIndex
+                s.addEventListener('mouseover', () => {
+                    s.parentElement.parentElement.style.zIndex = 10
+                })
+                s.addEventListener('mouseout', () => {
+                    s.parentElement.parentElement.style.zIndex = zIndex
+                })
+            })
+            input.addEventListener('keyup', event => {
+                if(event.keyCode === 13){
+                    const url = input.value
+                    if (!url || url.trim().length === 0) {
+                        return
+                    }
+                    screens.forEach(s => {
+                        s.setAttribute('src', url)
+                    })
+                }
+            })
+        }
+    </script>
+</body>
+</html>
